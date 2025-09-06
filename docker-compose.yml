@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE: http://localhost:8080
+    volumes:
+      - ./data:/data   # share TIFFs and outputs
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      # Optional: default worker Python command, API can override
+      WORKER_CMD: "python /app/worker.py --image_a {imageA} --image_b {imageB} --aoi {aoi} --out_dir {outDir}"
+    volumes:
+      - ./data:/data
+    depends_on:
+      - worker
+
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/data
+    platform: linux/amd64
+
+
+volumes:
+  data:

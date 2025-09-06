@@ -1,0 +1,9 @@
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+
+# System
+.DS_Store

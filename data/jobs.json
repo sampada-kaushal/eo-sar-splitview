@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "id": "mf8191lm-5gdew2",
+      "status": "RUNNING",
+      "aoi": {
+        "north": 27.605670826465445,
+        "south": 24.04646399966658,
+        "east": 75.34106425828011,
+        "west": 74.41747618216283
+      },
+      "imageAPath": "/data/uploads/ivB7de2nz-.tif",
+      "imageBPath": "/data/uploads/hnWzXVAmhu.tif"
+    }
+  ]
+}

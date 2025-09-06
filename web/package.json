@@ -1,0 +1,34 @@
+{
+    "name": "eo-sar-web",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "georaster": "1.6.0",
+        "georaster-layer-for-leaflet": "3.7.0",
+        "geotiff": "2.1.2",
+        "leaflet": "1.9.4",
+        "leaflet-draw": "1.0.2",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "react-leaflet": "4.2.1"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.3.1",
+        "terser-webpack-plugin": "^5.3.14",
+        "vite": "^5.4.1"
+    },
+    "overrides": {
+        "terser": "^5.44.0",
+        "terser-webpack-plugin": "^5.3.14"
+        }
+
+
+
+
+}

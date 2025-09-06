@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EO/SAR Split-View</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <style>
+      html, body, #root { height: 100%; margin: 0; }
+      .app { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+      .toolbar { padding: 10px; border-bottom: 1px solid #eee; display:flex; gap:12px; align-items:center; }
+      .maps { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+      .map { border-left: 1px solid #eee; }
+      .chip { padding: 4px 8px; border-radius: 999px; font-size: 12px; color:#fff }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
