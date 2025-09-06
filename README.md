@@ -78,52 +78,52 @@ For this prototype, chose a translation-only image alignment approach.
 
 The worker script:
 
-Clips both rasters to the AOI using Rasterio.
+* Clips both rasters to the AOI using Rasterio.
 
-Estimates the pixel shift between them with phase cross-correlation (from scikit-image).
+* Estimates the pixel shift between them with phase cross-correlation (from scikit-image).
 
-Applies the sub-pixel shift to the moving image and reprojects it into the reference image’s grid.
+* Applies the sub-pixel shift to the moving image and reprojects it into the reference image’s grid.
 
 Why this method?
 It is fast, lightweight, and works well when two images differ only by translation (common in EO/SAR pairs where geometry is already roughly aligned). It avoids heavier methods like feature-matching or full orthorectification, keeping the demo simple and responsive.
 
 ## Known Limitations & Tradeoffs
 
-Assumes images are already roughly coregistered and only require translation.
+* Assumes images are already roughly coregistered and only require translation.
 
-No rotation, scale, or terrain correction.
+* No rotation, scale, or terrain correction.
 
-CRS handling is simplified: AOI is given in EPSG:4326, then transformed into each raster’s CRS for clipping.
+* CRS handling is simplified: AOI is given in EPSG:4326, then transformed into each raster’s CRS for clipping.
 
-Not robust to large geometric distortions or very different acquisition angles.
+* Not robust to large geometric distortions or very different acquisition angles.
 
 ## Demo Flow
 
 (In the UI at http://localhost:5173
 )
 
-Upload two GeoTIFFs (EO + SAR).
+* Upload two GeoTIFFs (EO + SAR).
 
-Draw AOI rectangle on the map.
+* Draw AOI rectangle on the map.
 
-Click Process AOI – backend spawns a job.
+* Click Process AOI – backend spawns a job.
 
-When finished, toggle Show processed to see the aligned overlays side-by-side.
+* When finished, toggle Show processed to see the aligned overlays side-by-side.
 
 ## Sample Data
 
 You can test with two small GeoTIFFs (examples included in /data or via external links):
 
-Example EO image (CRS: EPSG:4326)
+* Example EO image (CRS: EPSG:4326)
 
-Example SAR image (CRS: EPSG:4326)
+* Example SAR image (CRS: EPSG:4326)
 
 (Replace with other sample files if needed. Large files may not display well in the browser.)
 
 ## Next Steps
 
-Feature-based alignment: Match keypoints (e.g. corners/patterns) for more robust results.
+* Feature-based alignment: Match keypoints (e.g. corners/patterns) for more robust results.
 
-CRS reprojection: Reproject images into a common map projection.
+* CRS reprojection: Reproject images into a common map projection.
 
-Job queue: Use a queue (e.g. RabbitMQ/ SQS) to manage multiple jobs at scale.
+* Job queue: Use a queue (e.g. RabbitMQ/ SQS) to manage multiple jobs at scale.
