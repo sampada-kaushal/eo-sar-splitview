@@ -15,11 +15,11 @@ docker compose up --build
 ```
 
 This will spin up three services:
-web – React frontend (served at http://localhost:5173)
+* web – React frontend (served at http://localhost:5173)
 
-api – Node.js backend REST API (http://localhost:8080)
+* api – Node.js backend REST API (http://localhost:8080)
 
-worker – Python processor (invoked by API jobs)
+* worker – Python processor (invoked by API jobs)
 
 ## API Endpoints
 
